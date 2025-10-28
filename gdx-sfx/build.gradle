@@ -1,0 +1,33 @@
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.3'
+    }
+}
+
+allprojects {
+
+    apply plugin: 'eclipse'
+
+    group = 'net.spookygames.gdx'
+    version = '2.1.0'
+
+    ext {
+        gdxVersion = '1.8.0'
+        libName = 'gdx-sfx'
+    }
+
+    repositories {      
+        google()
+        mavenCentral()
+    }
+}
+
+subprojects {
+    eclipse.project.name = "$libName-$name"
+}

@@ -1,0 +1,31 @@
+buildscript {
+    repositories {        
+    	google()
+        mavenCentral()
+		jcenter()
+    }
+}
+
+allprojects {
+    apply plugin: "eclipse"
+    apply plugin: "idea"
+
+    version = '1.0'
+    ext {
+        libName = "commons"
+        gdxVersion = '1.9.9'
+        roboVMVersion = '2.3.1'
+        box2DLightsVersion = '1.4'
+        ashleyVersion = '1.7.0'
+        aiVersion = '1.8.0'
+    }
+
+    repositories {
+   		google()
+        mavenCentral()
+    }
+}
+
+tasks.eclipse.doLast {
+    delete ".project"
+}

@@ -1,0 +1,23 @@
+apply plugin: "java-library"
+
+sourceCompatibility = 1.8
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+sourceSets.main.java.srcDirs = [ "src/" ]
+
+dependencies {
+	if(projectDir.getParentFile().equals(rootDir)) {
+        implementation project(':core')
+    } else {
+    	implementation project(':'+projectDir.getParentFile().name+':core')
+    }
+}
+compileJava {
+    options.release = 8
+}
+
+eclipse.project {
+    name = libName + "-annotations"
+}
+
+java.targetCompatibility = JavaVersion.VERSION_1_8
